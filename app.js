@@ -14,9 +14,7 @@ const secretKey = process.env.SECRET_KEY;
 // Creating an instance of the Express application
 const app = express();
 app.use(express.json())
-app.use(cors({
-    credentials: true,
-}))
+app.use(cors())
 
 // Middleware to parse JSON requests
 app.use("*home", bodyParser.json());
