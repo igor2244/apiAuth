@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const Customers = require('./models/customer');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
-require('cors');
+const cors = require('cors');
 require('dotenv').config();
 const saltRounds = 5;
 const secretKey = process.env.SECRET_KEY;
@@ -14,6 +14,9 @@ const secretKey = process.env.SECRET_KEY;
 // Creating an instance of the Express application
 const app = express();
 app.use(express.json())
+app.use(cors({
+    credentials: true,
+}))
 
 // Middleware to parse JSON requests
 app.use("*home", bodyParser.json());
